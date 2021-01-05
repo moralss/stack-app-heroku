@@ -4,7 +4,8 @@
   "description": "testing ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "npm install --prefix client && quasar build --prefix client"
   },
   "author": "moral",
   "license": "ISC",
