@@ -6,7 +6,8 @@
   "author": "moral <moral@devson.co.za>",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "start": "node index.js"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
