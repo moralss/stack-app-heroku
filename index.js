@@ -1,28 +1,13 @@
-const express = require("express");
-const app = express();
+const
+  express = require('express'),
+  serveStatic = require('serve-static'),
+  history = require('connect-history-api-fallback'),
+  port = process.env.PORT || 5000
 
-const decodeIDToken = require('./admin')
+const app = express()
 
-const PORT = 3003;
-
-app.get('/', decodeIDToken, async (req, res) => {
-  const auth = req.currentUser;
-  if (auth) {
-    console.log("auth", auth)
-    return
-  }
-
-
-  return res.status(403).send('Not authorized');
-});
-
-if (process.env.NODE_ENV === "production") {
-  //   app.use(express.static(path.join(__dirname, 'client/build')));
-  app.use(express.static('client/build'));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"))
-  })
-}
-
+app.use(history())
+app.use(serveStatic(__dirname + '/dist/spa'))
+app.listen(port)
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
