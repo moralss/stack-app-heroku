@@ -23,9 +23,9 @@ const app = express()
 // Handle production
 if (process.env.NODE_ENV === 'production') {
   // Static folder
-  app.use(express.static(__dirname + '/dist/spa'));
+  app.use(express.static(__dirname + 'client/dist/spa'));
   // Handle SPA
-  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/dist/spa/index.html'));
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + 'client/dist/spa/index.html'));
 }
 
 // app.use(history())
