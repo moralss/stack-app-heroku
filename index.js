@@ -1,16 +1,11 @@
-
-const express = require('express')
-const port = 5000
+const
+  express = require('express'),
+  serveStatic = require('serve-static'),
+  history = require('connect-history-api-fallback'),
+  port = process.env.PORT || 5000
 
 const app = express()
 
-// Handle production
-if (process.env.NODE_ENV === 'production') {
-  // Static folder
-  app.use(express.static(__dirname + 'client/public/'));
-
-  // Handle SPA
-  app.get(/.*/, (req, res) => res.sendFile(__dirname + 'client/public/index.html'));
-}
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.use(history())
+app.use(serveStatic(__dirname + '/dist/spa'))
+app.listen(port)
