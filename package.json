@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "quasar build",
-    "start": "node server.js",
-    "heroku-postbuild": "npm  && npm  build"
+    "start": "node index.js"
   },
   "author": "moral",
   "license": "ISC",
