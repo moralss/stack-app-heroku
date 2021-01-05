@@ -6,7 +6,7 @@
   "scripts": {
     "build": "quasar build",
     "start": "node index.js",
-    "heroku-postbuild": "npm && npm build"
+    "heroku-postbuild": "npm build"
   },
   "author": "moral",
   "license": "ISC",
