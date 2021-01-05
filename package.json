@@ -4,9 +4,9 @@
   "description": "testing ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "quasar build",
-    "start": "node index.js"
+    "start": "node server.js",
+    "heroku-postbuild": "yarn && yarn build"
   },
   "author": "moral",
   "license": "ISC",
