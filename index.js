@@ -35,9 +35,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.get("*", (req, res) => {
-  // res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
-  res.sendFile(__dirname + '/client/dist/spa/index.html')
+app.get("/api", (req, res) => {
+  res.send("hello world")
 })
 // app.use(history())
 // app.use(serveStatic(__dirname + 'client/dist/spa'))
