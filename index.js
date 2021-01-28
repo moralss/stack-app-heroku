@@ -24,12 +24,19 @@ if (process.env.NODE_ENV === 'production') {
   // Static folder
   // app.use(express.static(__dirname + '/client/dist/spa'));
   // Handle SPA
-  app.get(/.*/, (req, res) => {
-    return res.sendFile(__dirname + '/client/dist/spa/index.html')
+  // app.get(/.*/, (req, res) => {
+  //   return res.sendFile(__dirname + '/client/dist/spa/index.html')
+  // })
+
+  app.use(express.static('client/dist/spa'));
+  app.get("*", (req, res) => {
+    // res.sendFile(path.join(__dirname, "client", "dist/spa", "index.html"))
+    res.sendFile(__dirname + '/client/dist/spa/index.html')
   })
 }
 
-app.get(/.*/, (req, res) => {
+app.get("*", (req, res) => {
+  // res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
   res.sendFile(__dirname + '/client/dist/spa/index.html')
 })
 // app.use(history())
