@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.get("/api", (req, res) => {
+app.get("/api/car", (req, res) => {
   res.send("hello world")
 })
 // app.use(history())
