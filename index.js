@@ -6,7 +6,6 @@ const
 
 const app = express()
 
-
 // if (process.env.NODE_ENV === "production") {
 //   //   app.use(express.static(path.join(__dirname, 'client/build')));
 //   app.use(express.static('client/dist/spa'));
@@ -23,11 +22,16 @@ const app = express()
 // Handle production
 if (process.env.NODE_ENV === 'production') {
   // Static folder
-  app.use(express.static(__dirname + 'client/dist/spa'));
+  app.use(express.static(__dirname + '/client/dist/spa'));
   // Handle SPA
-  app.get(/.*/, (req, res) => res.sendFile(__dirname + 'client/dist/spa/index.html'));
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/client/dist/spa/index.html'));
 }
 
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + '/client/dist/spa/index.html')
+// })
 // app.use(history())
 // app.use(serveStatic(__dirname + 'client/dist/spa'))
-app.listen(port)
+app.listen(port, () => {
+  console.log("server running")
+})
