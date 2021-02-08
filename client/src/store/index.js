@@ -115,7 +115,7 @@ export default new Vuex.Store({
     logout ({
       commit
     }) {
-      commit('resetState')
+      commit('logoutUser')
     },
   },
   // enable strict mode (adds overhead!)
